@@ -19,8 +19,8 @@ do
 	individualLwcPath="$pathToLwcs${element}/__tests__/${element}.test.js"
     #echo 'after individual'
 	jestCommandString="$jestCommandString $individualLwcPath "
-    echo $path
-    echo $individualLwcPath 
+    #echo $path
+    #echo $individualLwcPath 
 done
 ###############################Run all jest tests in cloned repo######################################
 copado -p 'Running Jest Suite'
