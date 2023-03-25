@@ -7,7 +7,12 @@ git clone $repo -b "$branch" .
 ###############################Installing jest libs via npm#########################
 copado -p 'Installing jest'
 npm init -y
-npm i --sav-dev jest
+#npm i --sav-dev jest
+#./node_modules/.bin/jest --version
+sfdx force:lightning:lwc:test:setup
+#npm i --save-dev @babel/preset-env
+node --experimental-vm-modules ./node_modules/jest/bin/jest.js
+echo "Before Version"
 #path="force-app/main/default/lwc/lwcOne/__tests__/lwcOne.test.js"
 ##############################Setting LWCs to run jest on################################
 copado -p 'Retrieveing LWCs to test'
