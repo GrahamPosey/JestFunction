@@ -36,9 +36,8 @@ echo $failedTestCount
 #sfdx force:config:set instanceUrl=https://login.salesforce.com --global
 if [ "$failedTestCount" -gt "$failedTestLimit" ]
 then
-	sfdx force:data:record:update -s copado__User_Story__c -i $usId -v "Jest_Test_Result__c='Fail'" --targetusername $dxSessionId
-	echo "exiting 1"
-	#exit 1
+	jestResult='Fail'
 else
-	sfdx force:data:record:update -s copado__User_Story__c -i $usId -v "Jest_Test_Result__c='Pass'" --targetusername $dxSessionId
+	jestResult='Pass'
 fi
+sfdx force:data:record:update -s copado__User_Story__c -i $usId -v "Jest_Test_Result__c='$jestResult'" --targetusername $dxSessionId
